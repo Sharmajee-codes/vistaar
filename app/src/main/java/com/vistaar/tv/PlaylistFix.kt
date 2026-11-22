@@ -13,6 +13,7 @@ import java.io.InputStream
  * Jio's master playlists advertise I-frame (trick-play) playlists that the CDN answers with 403.
  * Media3 loads them and fails playback, so drop those lines before parsing.
  */
+@androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 class NoIFramePlaylistParserFactory : HlsPlaylistParserFactory {
     private class Stripper(private val inner: ParsingLoadable.Parser<HlsPlaylist>) : ParsingLoadable.Parser<HlsPlaylist> {
         override fun parse(uri: Uri, input: InputStream): HlsPlaylist {

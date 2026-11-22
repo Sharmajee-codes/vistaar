@@ -11,7 +11,7 @@ Do not lower the target SDK or add an ARM64-only ABI filter for this TV.
 
 ## Install
 
-1. Download [Vistaar 0.3](../releases/Vistaar-0.3-debug.apk).
+1. Download the [fork's BF1 APK](../releases/Vistaar-0.3-BRAVIA-BF1-debug.apk).
 2. Transfer the APK to the TV using a USB drive or a file transfer app.
 3. Open it in a file manager. Allow **Install unknown apps** for that file manager
    when prompted, then choose **Install**.
@@ -21,15 +21,24 @@ With network debugging enabled and the computer authorized by the TV:
 
 ```sh
 adb connect <TV-IP>:5555
-adb install -r releases/Vistaar-0.3-debug.apk
+adb install -r releases/Vistaar-0.3-BRAVIA-BF1-debug.apk
 ```
 
-The upstream APK's SHA-256 is
+The fork APK's SHA-256 is
+`c0c4b25b93cbf4e3e6a770685177f142fdf3db5049726014c92604ec345bd2ea`.
+It is built from this fork with local Android debug signing. It includes explicit
+Media3 API opt-ins and replaces an API 24 map call to preserve API 23 support.
+The source build and lint pass (0 errors, 75 pre-existing warnings).
+
+If updating an existing upstream installation, the unchanged
+[upstream APK](../releases/Vistaar-0.3-debug.apk) retains its original signing key.
+Its SHA-256 is
 `d93a6f4b2e9ee74bd1c58faefafff2c79a79d674fe396ed23e906930fce3e3e8`.
 
 If installation fails, retain the exact error from `adb install`. A signature
 mismatch means the installed copy and new APK were signed with different keys.
-Use the same signing key for updates that preserve sign-in and favourites;
+The fork APK uses a different debug key from upstream. Use the same signing key
+for updates that preserve sign-in and favourites;
 uninstalling clears the app's private data. CI debug builds use a runner's debug
 key and are not guaranteed to update an upstream APK or another CI build.
 

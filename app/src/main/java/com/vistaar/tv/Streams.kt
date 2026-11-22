@@ -9,6 +9,7 @@ import androidx.media3.exoplayer.hls.HlsMediaSource
 import androidx.media3.exoplayer.source.MediaSource
 
 /** How a channel's stream is looked up and played; shared by the full player and the Live/Free TV preview so the rules stay in one place. */
+@androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 object Streams {
     /** Stream URL + guide for a channel, resolved ahead of time. */
     class Resolved(val cur: Program?, val nxt: Program?, val play: Play, val at: Long)

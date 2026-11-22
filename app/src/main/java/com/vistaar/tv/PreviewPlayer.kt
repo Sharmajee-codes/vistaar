@@ -16,6 +16,7 @@ import java.util.concurrent.Executors
  * Muted, low-resolution live picture for the preview panel. Starts after the focus has rested on a channel for a moment,
  * stays invisible until the first frame, and falls back to the artwork on any error. Release it in onPause: many TVs have one decoder.
  */
+@androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 class PreviewPlayer(private val a: Activity) {
     val view = AspectRatioFrameLayout(a).apply { resizeMode = AspectRatioFrameLayout.RESIZE_MODE_ZOOM; alpha = 0f }
     private val tv = TextureView(a).also { view.addView(it) }

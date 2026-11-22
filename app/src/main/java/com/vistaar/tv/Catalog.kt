@@ -51,7 +51,14 @@ object Catalog {
     /** The playable Jio channel with the same name as free channel [id] ("StarPlus (India) HD" is "Star Plus HD"), or null. */
     fun twinOf(id: Long): Long? {
         val f = Free.shown.firstOrNull { it.id == id } ?: return null
-        if (twinFor != playable.size) { twinIdx.clear(); playableChannels().forEach { twinIdx.putIfAbsent(twinKey(it.name), it.id) }; twinFor = playable.size }
+        if (twinFor != playable.size) {
+            twinIdx.clear()
+            playableChannels().forEach { channel ->
+                val key = twinKey(channel.name)
+                if (!twinIdx.containsKey(key)) twinIdx[key] = channel.id
+            }
+            twinFor = playable.size
+        }
         return twinKey(f.name).takeIf { it.length >= 4 }?.let { twinIdx[it] }
     }
 

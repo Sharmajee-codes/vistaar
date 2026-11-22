@@ -40,6 +40,7 @@ import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.Executors
 
 /** The live player: playback logic unchanged, with an overlay for info, controls, a side sheet and an error card. */
+@androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
 class PlayerActivity : Activity() {
     private data class Item(val label: String, val sub: String = "", val checked: Boolean = false)
     private data class Track(val group: TrackGroup, val index: Int, val format: Format)
