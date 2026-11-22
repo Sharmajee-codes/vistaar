@@ -1,6 +1,7 @@
 # Build output and tooling
 /build/
 /app/build/
+/dist/
 .gradle/
 .idea/
 *.iml

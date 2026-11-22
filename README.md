@@ -85,6 +85,10 @@ Captured from the 0.3 app on an Android TV (1920×1080).
 
 ### Android TV / Google TV
 
+**Sony BRAVIA BF1 / BRAVIA 3 (Android TV 12, 32-bit ARM):** use the universal APK
+below. See the [BF1 installation and compatibility guide](docs/sony-bravia.md)
+for checks, troubleshooting, and the distinction from non-Android Sony TVs.
+
 1. Download **[`Vistaar-0.3-debug.apk`](releases/Vistaar-0.3-debug.apk)** (Android 6.0 or newer).
 2. Copy it to the TV (USB drive, or an app such as *Downloader*), open it and choose **Install**. Allow *install unknown apps* if asked.
 3. Open **Vistaar** from the app list.
